@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SearchableList from './components/SearchableList/SearchableList';
+import FavoritesList from './components/FavoritesList/FavoritesList';
+import { FavoriteCharactersProvider } from './components/FavoritesContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-blue-900 h-screen min-h-screen overflow-clip flex items-center justify-center">
+      <div className='w-3/4 h-3/4 bg-gray-300 rounded-3xl px-6 py-4 grid grid-rows-1 grid-cols-2 gap-8'>
+          <FavoriteCharactersProvider>
+            <SearchableList />
+            <FavoritesList />
+          </FavoriteCharactersProvider>
+      </div>
     </div>
   );
 }
